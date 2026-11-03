@@ -15,3 +15,10 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
+      - name: Upload preview build
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-preview-dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
